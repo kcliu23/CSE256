@@ -1,4 +1,4 @@
-# CSE 256 PA1
+# CSE 256 PA1: Deep Averaging Networks, BPE, & Skip-Gram
 
 **Author:** Kai-Cheng Liu  
 **PID:** A69042222  
@@ -9,28 +9,17 @@ This repository implements a Deep Averaging Network (DAN) for sentiment classifi
 
 ---
 
-## 1. Requirements & Setup
+## 1. Requirements
 
-### Environment Setup (Conda)
-The project requires Python 3.6+ and PyTorch. The recommended setup using Conda is as follows:
+Per assignment instructions, the coding environment is assumed to be pre-configured. The code relies on the following Python libraries:
 
-```bash
-# 1. Create a new environment
-conda create -n cse256 python=3.8
-
-# 2. Activate the environment
-conda activate cse256
-
-# 3. Install PyTorch (CPU version is sufficient)
-conda install pytorch -c pytorch
-
-# 4. Install other dependencies (Plotting & vectorization)
-conda install matplotlib scikit-learn
-
-```
+* **Python 3.11.4**
+* **PyTorch** (`torch`, `torch.nn`, `torch.utils.data`)
+* **Matplotlib** (`matplotlib.pyplot`)
+* **Scikit-Learn** (`sklearn.feature_extraction.text`)
+* **Standard Library:** `os`, `time`, `argparse`, `copy`, `re`, `collections`
 
 ### Directory Structure
-
 Please ensure your directory is structured as follows. The `data/` folder must contain the provided dataset and GloVe embedding files.
 
 ```text
@@ -119,9 +108,8 @@ All visualization results are automatically saved to the `results/` directory.
 * **Hyperparameters:** To ensure a fair comparison, both GloVe and Random models use identical settings:
 * Hidden Size: 300
 * Dropout: 0.3
-* Learning Rate: 1e-4
-* Weight Decay: 1e-5
+* Learning Rate: 
+* Weight Decay: 
 
 
 * **Early Stopping:** Training monitors Dev Accuracy and stops if no improvement is seen for 15 epochs, restoring the best model weights.
-
